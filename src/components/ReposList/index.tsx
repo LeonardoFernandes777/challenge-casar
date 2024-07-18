@@ -4,10 +4,10 @@ import { useEffect, useState, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { RepoProps } from '@/types/user';
 import { IoHeartCircleOutline, IoHeartCircle } from 'react-icons/io5';
+import { useFavorites } from '@/context';
 
 async function fetchRepos(username: string, page: number): Promise<RepoProps[]> {
   const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-  console.log('TOKEN', GITHUB_TOKEN)
   const res = await fetch(`https://api.github.com/users/${username}/repos?page=${page}&per_page=10`, {
     headers: {
       'Authorization': `token ${GITHUB_TOKEN}`,
@@ -20,12 +20,12 @@ async function fetchRepos(username: string, page: number): Promise<RepoProps[]> 
 }
 
 export default function ReposList({ initialRepos, username }: { initialRepos: RepoProps[], username: string }) {
+  const { favorites, toggleFavorite } = useFavorites();
   const [repos, setRepos] = useState<RepoProps[]>(initialRepos);
   const [page, setPage] = useState(2);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [hasMore, setHasMore] = useState(true);
-  const [favorites, setFavorites] = useState<{ [key: number]: boolean }>({});
   const observer = useRef<IntersectionObserver | null>(null);
   const lastRepoElementRef = useRef<HTMLLIElement | null>(null);
 
@@ -62,13 +62,6 @@ export default function ReposList({ initialRepos, username }: { initialRepos: Re
     }
   }, [loading, hasMore, loadMoreRepos]);
 
-  const handleFavorite = (repoId: number) => {
-    setFavorites((prevFavorites) => ({
-      ...prevFavorites,
-      [repoId]: !prevFavorites[repoId],
-    }));
-  };
-
   const languageColors: { [key: string]: string } = {
     TypeScript: 'bg-blue-500',
     JavaScript: 'bg-yellow-500',
@@ -102,8 +95,8 @@ export default function ReposList({ initialRepos, username }: { initialRepos: Re
                   <p className="text-customGrayNeutral-600 ml-5">updated on {new Date(repo.updated_at).toLocaleDateString()}</p>
                 </div>
               </div>
-              <button onClick={() => handleFavorite(repo.id)} className="ml-4 p-2">
-                {favorites[repo.id] ? (
+              <button onClick={() => toggleFavorite(repo)} className="ml-4 p-2">
+                {favorites.some(fav => fav.id === repo.id) ? (
                   <IoHeartCircle className="text-customBlue w-8 h-8" />
                 ) : (
                   <IoHeartCircleOutline className="text-customGray w-8 h-8" />

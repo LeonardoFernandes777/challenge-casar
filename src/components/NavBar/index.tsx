@@ -1,8 +1,10 @@
 "use client"
 
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { FaSearch } from 'react-icons/fa';
 import { FaRegHeart } from "react-icons/fa6";
+import { FaHome } from "react-icons/fa";
 
 export function NavBar() {
   const router = useRouter();
@@ -21,23 +23,27 @@ export function NavBar() {
   return (
     <header className="border-b border-customWhite">
       <div className="flex items-center justify-between h-20">
-        <div className="relative ml-4">
+        <div className="relative ml-4" >
           <form onSubmit={handleSearchUser}>
             <input
               type="text"
               name="username"
               placeholder="Buscar usuário"
-              className="sm:w-60 md:w-96 lg:w-128 p-2 pl-5 rounded-md border border-customWhite text-customGrayNeutral"
+              className="sm:w-60 md:w-96 lg:w-128 p-2 pl-10 rounded-md border border-customWhite text-customGrayNeutral"
             />
             <button type='submit'>
               <FaSearch className="absolute right-3 top-2 text-customGray cursor-pointer" />
             </button>
+            <Link href="/" className="absolute left-1 top-1 cursor-pointer">
+                <FaHome className="text-customGray mr-2" size={'1.5rem'} />
+            </Link>
           </form>
+          
         </div>
-        <button type="button" className="flex items-center bg-customBlue px-4 py-2 h-full cursor-pointer">
+        <Link href="/favoritos" className="flex items-center bg-customBlue px-4 py-2 h-full cursor-pointer">
           <FaRegHeart className="text-white mr-2" size={'1.5rem'} />
           <span className="text-white">Favoritos</span>
-        </button>
+        </Link>
       </div>
     </header>
   );
