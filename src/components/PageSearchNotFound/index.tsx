@@ -1,10 +1,14 @@
 import Image from 'next/image'
 
-export function PageSearchNotFound() {
+type Props = {
+  search: string | null;
+};
+
+export function PageSearchNotFound({ search }: Props){
   return (
     <div className="flex flex-col items-center justify-center h-[calc(100vh-6rem)] text-center px-4 sm:px-6 lg:px-8">
       <h1 className="mb-2 text-xl sm:text-2xl lg:text-2xl font-semibold text-customBlue">
-        &quot;wddwdw&quot;
+        &quot;{search}&quot;
       </h1>
       <h1 className="mb-2 text-xl sm:text-2xl lg:text-2xl font-semibold text-customGrayNeutral">
         Nenhum usuário encontrado
