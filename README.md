@@ -60,7 +60,7 @@ Para buscar um usuário do GitHub, digite o nome de usuário no campo de busca e
 
 ## Variáveis de Ambiente
 
-O projeto utiliza a variável de ambiente `GITHUB_TOKEN` para autenticar as requisições à API do GitHub. Certifique-se de adicionar essa variável ao arquivo `.env.local`.
+O projeto utiliza a variável de ambiente `GITHUB_TOKEN` para autenticar as requisições à API do GitHub. Certifique-se de adicionar essa variável ao arquivo `.env.local`
 
 ## Testes
 
@@ -71,7 +71,7 @@ Este projeto utiliza a biblioteca [Jest](https://jestjs.io/) e [Testing Library]
 Para configurar o ambiente de testes, foram utilizados os seguintes arquivos:
 
 - `jest.config.js`: Configurações gerais do Jest.
-- `jest.setup.js`: Configurações específicas de inicialização, incluindo a configuração do Mock Service Worker (MSW) para mockar requisições à API.
+- `jest.setup.js`: Configurações específicas de inicialização.
 
 ### Executando os Testes
 
