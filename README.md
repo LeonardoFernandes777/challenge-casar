@@ -43,7 +43,7 @@ Siga os passos abaixo para instalar e executar o projeto localmente:
 3. Crie um arquivo `.env.local` na raiz do projeto com as seguintes variáveis de ambiente:
 
     ```env
-    NEXT_PUBLIC_GITHUB_TOKEN=seu_github_token
+    GITHUB_TOKEN=seu_github_token
     ```
 
 4. Inicie o servidor de desenvolvimento:
@@ -60,7 +60,7 @@ Para buscar um usuário do GitHub, digite o nome de usuário no campo de busca e
 
 ## Variáveis de Ambiente
 
-O projeto utiliza a variável de ambiente `NEXT_PUBLIC_GITHUB_TOKEN` para autenticar as requisições à API do GitHub. Certifique-se de adicionar essa variável ao arquivo `.env.local`.
+O projeto utiliza a variável de ambiente `GITHUB_TOKEN` para autenticar as requisições à API do GitHub. Certifique-se de adicionar essa variável ao arquivo `.env.local`.
 
 ## Testes
 
