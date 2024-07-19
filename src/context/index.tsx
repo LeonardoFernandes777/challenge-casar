@@ -1,15 +1,7 @@
 "use client";
 
+import { RepoProps } from "@/types/types";
 import { createContext, useState, useEffect, useContext, ReactNode } from "react";
-
-export type RepoProps = {
-    id: number;
-    name: string;
-    html_url: string;
-    description: string;
-    language: string;
-    updated_at: string;
-};
 
 type FavoriteContextType = {
     favorites: RepoProps[];

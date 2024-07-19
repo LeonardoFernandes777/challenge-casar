@@ -17,7 +17,7 @@ export function PageSearchNotFound({ search }: Props){
         Verifique se a escrita está correta e tente novamente
       </p>
       <div className="w-full max-w-[150px] sm:max-w-[200px] md:max-w-[200px] lg:max-w-[300px]">
-        <Image src="/taken.svg" width={150} height={150} alt="People Search" layout="responsive"/>
+        <Image src="/taken.svg" width={150} height={150} alt="taken" className="object-cover w-full h-full" priority/>
       </div>
     </div>
   );

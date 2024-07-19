@@ -1,6 +1,6 @@
 import { PageSearchNotFound } from '@/components/PageSearchNotFound';
 import RepoList from '@/components/ReposList';
-import { RepoProps, UserProps } from '@/types/user';
+import { RepoProps, UserProps } from '@/types/types';
 import Image from 'next/image';
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
@@ -50,7 +50,7 @@ export default async function PageProfile({ params }: { params: { username: stri
       <div className="flex-shrink-0 p-4 md:p-6 bg-white rounded-lg border border-black-600 w-full lg:w-1/3  sm:max-h-[300px] md:max-h-[400px] lg:max-h-[430px]">
         <div className="flex flex-col items-center">
           <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden">
-            <Image src={user.avatar_url} width={150} height={150} alt={user.login} className="object-cover w-full h-full" />
+            <Image src={user.avatar_url} width={150} height={150} alt={user.login} className="object-cover w-full h-full" priority/>
           </div>
           <h2 className="text-lg md:text-xl font-bold mt-4 text-center">{user.name}</h2>
           <p className="text-gray-600 text-center mt-5">@{user.login}</p>
