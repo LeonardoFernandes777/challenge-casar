@@ -2,12 +2,13 @@ import { PageSearchNotFound } from '@/components/PageSearchNotFound';
 import RepoList from '@/components/ReposList';
 import { RepoProps, UserProps } from '@/types/types';
 import Image from 'next/image';
+import api from '@/services/api';
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
 async function fetchUserData(username: string): Promise<{ user: UserProps | null, repos: RepoProps[] | null }> {
   try {
-    const userRes = await fetch(`https://api.github.com/users/${username}`, {
+    const userRes = await fetch(`${api.baseURL}/${username}`, {
       headers: {
         'Authorization': `token ${GITHUB_TOKEN}`
       }
@@ -17,7 +18,7 @@ async function fetchUserData(username: string): Promise<{ user: UserProps | null
     }
     const user = await userRes.json();
 
-    const reposRes = await fetch(`https://api.github.com/users/${username}/repos?per_page=10&page=1`, {
+    const reposRes = await fetch(`${api.baseURL}/${username}/repos?per_page=10&page=1`, {
       headers: {
         'Authorization': `token ${GITHUB_TOKEN}`
       }

@@ -10,7 +10,7 @@ export function PageSearchEmpty() {
         Encontre os repositórios de algum usuário digitando no campo acima
       </p>
       <div className="w-full max-w-[150px] sm:max-w-[200px] md:max-w-[200px] lg:max-w-[300px]">
-        <Image src="/people_Search.svg" width={150} height={150} alt="People Search" className="object-cover w-full h-full" priority/>
+        <Image src="/people_search.svg" width={150} height={150} alt="People Search" className="object-cover w-full h-full" priority/>
       </div>
     </div>
   );

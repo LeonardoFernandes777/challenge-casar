@@ -3,10 +3,11 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { RepoProps } from '@/types/types';
 import RepoCard from '@/components/RepoCard';
+import api from '@/services/api';
 
 export async function fetchRepos(username: string, page: number): Promise<RepoProps[]> {
   const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-  const res = await fetch(`https://api.github.com/users/${username}/repos?page=${page}&per_page=10`, {
+  const res = await fetch(`${api.baseURL}/${username}/repos?page=${page}&per_page=10`, {
     headers: {
       'Authorization': `token ${GITHUB_TOKEN}`,
     },
