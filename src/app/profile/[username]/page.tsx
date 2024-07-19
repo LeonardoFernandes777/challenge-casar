@@ -42,7 +42,7 @@ export default async function PageProfile({ params }: { params: { username: stri
   if (!user) {
     return (
       <main className="flex items-center justify-center h-[calc(100vh-6rem)]">
-        <PageSearchNotFound search={params.username} />
+        <PageSearchNotFound search={decodeURIComponent(params.username)} />
       </main>
     );
   }

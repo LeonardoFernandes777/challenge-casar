@@ -23,16 +23,17 @@ export function NavBar() {
   return (
     <header className="border-b border-customWhite">
       <div className="flex items-center justify-between h-20">
-        <div className="relative ml-4" >
+        <div className="relative ml-2 sm:ml-2 md:ml-5 lg-5" >
           <form onSubmit={handleSearchUser}>
             <input
+              maxLength={24}
               type="text"
               name="username"
               placeholder="Buscar usuário"
-              className="sm:w-60 md:w-96 lg:w-128 p-2 pl-10 rounded-md border border-customWhite text-customGrayNeutral"
+              className="w-60 sm:w-60 md:w-96 lg:w-128 p-2 pl-9 rounded-md border border-customWhite text-customGrayNeutral text-sm sm:text-sm"
             />
             <button type='submit'>
-              <FaSearch className="absolute right-3 top-2 text-customGray cursor-pointer" />
+              <FaSearch className="absolute right-2 top-2 text-customGray cursor-pointer" />
             </button>
             <Link href="/" className="absolute left-1 top-1 cursor-pointer">
                 <FaHome className="text-customGray mr-2" size={'1.5rem'} />
@@ -40,7 +41,7 @@ export function NavBar() {
           </form>
           
         </div>
-        <Link href="/favoritos" className="flex items-center bg-customBlue px-4 py-2 h-full cursor-pointer">
+        <Link href="/favoritos" className="flex items-center bg-customBlue px-2 py-2 h-full cursor-pointer ml-5">
           <FaRegHeart className="text-white mr-2" size={'1.5rem'} />
           <span className="text-white">Favoritos</span>
         </Link>
