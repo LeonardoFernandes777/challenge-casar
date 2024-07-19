@@ -19,7 +19,7 @@ async function fetchUserData(username: string): Promise<{ user: UserProps | null
     }
     const user = await userRes.json();
 
-    const reposRes = await fetch(`${api.baseURL}/${username}/repos?per_page=10&page=1`, {
+    const reposRes = await fetch(`${api.baseURL}/${username}/repos?per_page=10&page=1&sort=updated`, {
       headers: {
         'Authorization': `token ${GITHUB_TOKEN}`
       }
