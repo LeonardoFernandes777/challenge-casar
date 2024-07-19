@@ -4,7 +4,7 @@ import { useEffect, useState, useRef, useCallback } from 'react';
 import { RepoProps } from '@/types/types';
 import RepoCard from '@/components/RepoCard';
 
-async function fetchRepos(username: string, page: number): Promise<RepoProps[]> {
+export async function fetchRepos(username: string, page: number): Promise<RepoProps[]> {
   const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
   const res = await fetch(`https://api.github.com/users/${username}/repos?page=${page}&per_page=10`, {
     headers: {
@@ -39,7 +39,6 @@ export default function ReposList({ initialRepos, username }: { initialRepos: Re
       }
     } catch (error) {
       setError('Failed to load repositories');
-      console.error(error);
     }
     setLoading(false);
   }, [page, username]);
