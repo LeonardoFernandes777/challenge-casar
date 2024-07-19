@@ -2,6 +2,10 @@
 
 Este é um projeto desenvolvido para buscar e visualizar repositórios do GitHub usando Next.js 14, Tailwind CSS e a API do GitHub.
 
+## Ambiente PRD 
+
+https://challenge-casar.vercel.app/
+
 ## Índice
 
 - [Visão Geral](#visão-geral)
