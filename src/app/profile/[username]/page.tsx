@@ -7,6 +7,9 @@ import api from '@/services/api';
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
 async function fetchUserData(username: string): Promise<{ user: UserProps | null, repos: RepoProps[] | null }> {
+  
+  console.log('GITHUB_TOKEN:', process.env.GITHUB_TOKEN);
+
   try {
     const userRes = await fetch(`${api.baseURL}/${username}`, {
       headers: {
